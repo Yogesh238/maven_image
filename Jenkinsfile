@@ -16,6 +16,7 @@ pipeline {
          }
          steps {
             sh 'hadolint Dockerfile | tee -a      ms1_docker_lint.txt'
+             sh 'cat ms1_docker_lint.txt'
          }
          post {
           always {
