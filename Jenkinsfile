@@ -1,7 +1,7 @@
 pipeline { 
     environment { 
         registry = "yogeshcloudtechner/assignment" 
-        registryCredential = 'yogeshcloudtechner' 
+        registryCredential = 'dockerhub' 
         dockerImage = '' 
     }
     agent any 
@@ -18,14 +18,14 @@ pipeline {
                 }
             } 
         }
-        stage('Deploy our image') { 
+   stage('Deploy our image') { 
             steps { 
                 script { 
-                     docker.withRegistry( '', registryCredential ) { 
+                    docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
-                     }
+                    }
                 } 
             }
-        } 
+        }  
     }
 }
