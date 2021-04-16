@@ -24,6 +24,7 @@ pipeline {
       }
   }
 }
+        }
         stage('Building our image') { 
             steps { 
                 script { 
