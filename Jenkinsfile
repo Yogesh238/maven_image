@@ -6,6 +6,24 @@ pipeline {
     }
     agent any 
     stages { 
+        stage ("Quality Gate") { 
+   parallel {     
+      stage ("Dockerfile") {
+         agent {
+            docker {
+               image 'hadolint/hadolint:latest-debian'
+            }
+         }
+         steps {
+            sh 'hadolint microservice1/dockerfile | tee -a      ms1_docker_lint.txt'
+         }
+         post {
+          always {
+            archiveArtifacts 'ms1_docker_lint.txt'
+          }
+      }
+  }
+}
         stage('Building our image') { 
             steps { 
                 script { 
