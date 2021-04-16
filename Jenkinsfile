@@ -6,8 +6,7 @@ pipeline {
     }
     agent any 
     stages { 
-        stage ("Quality Gate") { 
-   parallel {     
+          
       stage ("Dockerfile") {
          agent {
             docker {
@@ -24,7 +23,7 @@ pipeline {
           }
       }
   }
-}
+
         }
         stage('Building our image') { 
             steps { 
