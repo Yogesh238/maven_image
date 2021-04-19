@@ -31,7 +31,7 @@ pipeline {
           stage('Anchore scanner')
         {
             steps {
-                
+                  sh 'chmod 777 /tmp/'
                   sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -f -d Dockerfile -b .anchore_policy.json yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
                       
             }
