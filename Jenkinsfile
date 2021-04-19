@@ -32,7 +32,7 @@ pipeline {
         {
             steps {
                   sh 'chmod +rw /tmp'
-                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -f -d Dockerfile -b .anchore_policy.json yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
+                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -p yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
                       
             }
         }
