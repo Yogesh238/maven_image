@@ -48,7 +48,7 @@ pipeline {
         {
             steps {
                 script {
-                   curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -f -d Dockerfile -b .anchore-policy.json example-image:latest
+                   bash -s -- -f -d Dockerfile -b .anchore-policy.json example-image:latest
                        }
             }
         }
