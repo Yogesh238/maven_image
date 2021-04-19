@@ -5,9 +5,6 @@ pipeline {
         dockerImage = '' 
     }
     agent any 
-     options {
-        timeout(time: 10, unit: 'MINUTES')   // timeout on whole pipeline job
-    }
     stages { 
          stage ("Docker linting") {
          agent {
