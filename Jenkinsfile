@@ -28,7 +28,7 @@ pipeline {
         stage('Building our image') { 
             steps { 
                 
-                sh 'docker build -t yogeshcloudtechner/assignment:maven.${BUILD_NUMBER} -f Dockerfile'
+                sh 'docker build -t yogeshcloudtechner/assignment:maven.${BUILD_NUMBER} -f Dockerfile .'
             } 
         }
           stage('Anchore scanner')
