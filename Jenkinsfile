@@ -29,6 +29,14 @@ pipeline {
                 }
             } 
         }
+        stage('Anchore scanner')
+        {
+            steps {
+                def imageLine = dockerImage
+writeFile file: 'anchore_images', text: imageLine
+anchore name: 'anchore_images'
+            }
+        }
    stage('Deploy our image') { 
             steps { 
                 script { 
