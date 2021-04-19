@@ -25,14 +25,15 @@ pipeline {
         stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry + ":maven.$BUILD_NUMBER" 
+                    dockerImage = docker.build registry + ":maven.$BUILD_NUMBER"
+                    def imageLine = dockerImage
+
                 }
             } 
         }
         stage('Anchore scanner')
         {
             steps {
-                def imageLine = dockerImage
 writeFile file: 'anchore_images', text: imageLine
 anchore name: 'anchore_images'
             }
