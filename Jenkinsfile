@@ -38,9 +38,10 @@ pipeline {
         }
    stage('Deploy our image') { 
             steps { 
+                withDockerRegistry([credentialsId: "docker", url: ""]){
                 sh 'docker push yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}' 
                 } 
             }
-      
+   }
     }
 }
