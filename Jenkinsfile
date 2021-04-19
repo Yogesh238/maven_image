@@ -35,7 +35,7 @@ pipeline {
         {
             steps {
                 
-                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -f -d Dockerfile -b .anchore-policy.json yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
+                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -f -d Dockerfile yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
                       
             }
         }
