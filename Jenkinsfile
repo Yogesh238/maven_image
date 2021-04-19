@@ -32,7 +32,7 @@ pipeline {
         {
             steps {
                 
-                  sh 'bash -s -- -f -d Dockerfile yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
+                  sh 'bash -s -- -f -d Dockerfile -b .anchore_policy.json yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
                       
             }
         }
