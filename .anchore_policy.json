@@ -1,0 +1,24 @@
+ {
+    "action": "STOP",
+    "comment": "Malicious library discovered [11.29.2019] typosquatting \"jellyfish\"",
+    "gate": "packages",
+    "params": [
+      {
+        "name": "name",
+        "value": "jeIlyfish"
+      }
+    ],
+    "trigger": "blacklist"
+  },
+  {
+    "action": "STOP",
+    "comment": "Malicious library discovered [11.29.2019] typosquatting python-dateutil",
+    "gate": "packages",
+    "params": [
+      {
+        "name": "name",
+        "value": "python3-dateutil"
+      }
+    ],
+    "trigger": "blacklist"
+  }
