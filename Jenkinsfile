@@ -47,9 +47,9 @@ pipeline {
         stage('Anchore scanner')
         {
             steps {
-                script {
-                   bash -s -- -f -d Dockerfile -b .anchore-policy.json example-image:latest
-                       }
+                
+                   bash -s -- -f -d Dockerfile -b .anchore-policy.json registry + ":maven.$BUILD_NUMBER"
+                      
             }
         }
     }
