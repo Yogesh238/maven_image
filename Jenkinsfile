@@ -35,7 +35,7 @@ pipeline {
         {
             steps {
                    writeFile file: 'anchore_images', text: registry + ":maven.$BUILD_NUMBER"
-anchore engineCredentialsId: 'a724dbba-30d6-4446-8f78-48b72ab861c3', engineurl: 'http://18.213.150.82:8228/v1', name: anchore_images
+anchore engineCredentialsId: 'a724dbba-30d6-4446-8f78-48b72ab861c3', engineurl: 'http://18.213.150.82:8228/v1', name: 'anchore_images'
             }
         }
    stage('Deploy our image') { 
