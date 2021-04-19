@@ -48,7 +48,7 @@ pipeline {
         {
             steps {
                 
-                   bash '-s -- -f -d Dockerfile -b .anchore-policy.json registry + ":maven.$BUILD_NUMBER"'
+                  sh '-s -- -f -d Dockerfile -b .anchore-policy.json registry + ":maven.$BUILD_NUMBER"'
                       
             }
         }
