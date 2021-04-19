@@ -29,14 +29,6 @@ pipeline {
                 }
             } 
         }
-        stage('Anchore scanner') 
-         {
-             steps {
-  def imageLine = 'dockerImage'
-  writeFile file: 'anchore_images', text: imageLine
-  anchore name: 'my_image_file', engineCredentialsId: 'my_credentials_id', bailOnFail: false
-}
-         }
    stage('Deploy our image') { 
             steps { 
                 script { 
