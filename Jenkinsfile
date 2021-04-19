@@ -44,7 +44,6 @@ pipeline {
                 sh 'docker push yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}' 
                 } 
             }
-        } 
       
     }
 }
