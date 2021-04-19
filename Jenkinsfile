@@ -28,13 +28,20 @@ pipeline {
         stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry + ":maven.$BUILD_NUMBER"
+                    dockerImage = docker build -t registry + ":maven.$BUILD_NUMBER" -f Dockerfile
                     
 
                 }
             } 
         }
-        
+          stage('Anchore scanner')
+        {
+            steps {
+                
+                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -f -d Dockerfile -b .anchore-policy.json yogeshcloudtechner/assignment:maven.${BUILD_NUMBER}'
+                      
+            }
+        }
    stage('Deploy our image') { 
             steps { 
                 script { 
@@ -44,13 +51,6 @@ pipeline {
                 } 
             }
         } 
-        stage('Anchore scanner')
-        {
-            steps {
-                
-                  sh 'curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -f -d Dockerfile -b .anchore-policy.json -p yogeshcloudtechner/assignment:maven.77'
-                      
-            }
-        }
+      
     }
 }
